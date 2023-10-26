@@ -23,9 +23,9 @@ export class SignUpComponent {
     passwordConfirmation: new FormControl('', [
       Validators.required,
       Validators.minLength(4),
-      Validators.maxLength(20),
-    ])
-  }, [Validators: this.matchPassword.validate ])
-
+      Validators.maxLength(20)
+    ]),
+  }, { Validators $any([this.matchPassword.validate]});
+  
   constructor(private matchPassword: MatchPassword) {}
 }
