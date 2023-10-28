@@ -5,18 +5,17 @@
         <input formControlName="username">
         {{authForm.get('username')?.errors | json}}
     </div> -->
-    <app-input label="Username" [control]="$any(authForm.get('username'))"></app-input>
-    {{authForm.get('username')?.errors | json}}
-    <div class="field">
-        <label>Username</label>
-        <input formControlName="password">
-        {{authForm.get('password')?.errors | json}}
+    <app-input inputType="text" label="Username" [control]="$any(authForm.get('username'))"></app-input>
+    <app-input inputType="password" label="Password" [control]="$any(authForm.get('password'))"></app-input>
+    <app-input inputType="password" label="Password Confirmation" [control]="$any(authForm.get('passwordConfirmation'))"></app-input>
+    
+    <div class="ui red basic label" *ngIf="authForm.get('password').touched && authForm.get('passwordConfirmation') && authForm.errors">
+        <p *ngIf="authForm.errors['passwordDontMatch']">
+            Password Does Not Match
+        </p>
     </div>
-    <div class="field">
-        <label>Username</label>
-        <input formControlName="passwordConfirmation">
-        {{authForm.get('passwordConfirmation')?.errors | json}}
+    <div>
+        <button class="ui submit button primary">Submit</button>
     </div>
-    <button class="ui submit button primary">Submit</button>
-    {{ authForm.errors | json }}
+    {{authForm.errors | json}}
 </form>
