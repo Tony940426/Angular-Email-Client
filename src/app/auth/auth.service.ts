@@ -17,4 +17,7 @@ export class AuthService {
       username
   })
   }
+  signUp(creditials: any){
+    return this.http.post<any>('https://api.angular-email.com/auth/signup', creditials)
+  }
 }
