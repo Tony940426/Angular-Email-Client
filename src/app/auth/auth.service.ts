@@ -5,19 +5,30 @@ interface UserNameAvailableResponse {
   available: boolean;
 }
 
+interface SignUpCredentials{
+  username: string;
+  password: string;
+  passwordConfirmation: string;
+}
+
+interface SignUpResponse {
+  username: string;
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
+  rootUrl = 'https://api.angular-email.com/'
   constructor(private http: HttpClient) { }
 
   userNameAvailable(username: string){
-    return this.http.post<UserNameAvailableResponse>('https://api.angular-email.com/auth/username', {
+    return this.http.post<UserNameAvailableResponse>(`${this.rootUrl}/auth/username`, {
       username
   })
   }
-  signUp(creditials: any){
-    return this.http.post<any>('https://api.angular-email.com/auth/signup', creditials)
+  signUp(creditials: SignUpCredentials){
+    return this.http.post<SignUpResponse>(`${this.rootUrl}/auth/signup`, creditials)
   }
 }

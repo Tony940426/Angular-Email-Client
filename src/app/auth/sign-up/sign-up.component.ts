@@ -42,7 +42,8 @@ export class SignUpComponent {
       if(this.authForm.invalid){
         return;
       }
-      this.authService.signUp(this.authForm.value).subscribe((response)=> {
+
+      this.authService.signUp(this.authForm.value as SignUpCredentials).subscribe((response)=> {
         console.log(response);
       })
     }
