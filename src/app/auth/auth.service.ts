@@ -5,7 +5,7 @@ interface UserNameAvailableResponse {
   available: boolean;
 }
 
-interface SignUpCredentials{
+export interface SignUpCredentials{
   username: string;
   password: string;
   passwordConfirmation: string;
@@ -24,11 +24,11 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   userNameAvailable(username: string){
-    return this.http.post<UserNameAvailableResponse>(`${this.rootUrl}/auth/username`, {
+    return this.http.post<UserNameAvailableResponse>(`${this.rootUrl}auth/username`, {
       username
   })
   }
   signUp(creditials: SignUpCredentials){
-    return this.http.post<SignUpResponse>(`${this.rootUrl}/auth/signup`, creditials)
+    return this.http.post<SignUpResponse>(`${this.rootUrl}auth/signup`, creditials)
   }
 }
