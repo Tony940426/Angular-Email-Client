@@ -21,21 +21,23 @@ interface SignUpResponse {
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
   rootUrl = 'https://api.angular-email.com/'
   signedin$ = new BehaviorSubject(false);
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient){}
 
 
   userNameAvailable(username: string){
     return this.http.post<UserNameAvailableResponse>(`${this.rootUrl}auth/username`, {
       username
-  })
+    });
   }
+
   signUp(creditials: SignUpCredentials){
     return this.http.post<SignUpResponse>(`${this.rootUrl}auth/signup`, creditials).pipe(
-      tap(()=> {
+      tap(() => {
         this.signedin$.next(true);
       })
     )
