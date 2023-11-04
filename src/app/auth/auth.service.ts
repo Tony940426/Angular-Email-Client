@@ -36,7 +36,7 @@ export class AuthService {
   }
 
   signUp(creditials: SignUpCredentials){
-    return this.http.post<SignUpResponse>(`${this.rootUrl}auth/signup`, creditials, { withCredentials: true }).pipe(
+    return this.http.post<SignUpResponse>(`${this.rootUrl}auth/signup`, creditials).pipe(
       tap(() => {
         this.signedin$.next(true);
       })
@@ -45,8 +45,7 @@ export class AuthService {
   //By default HTTP dumps cookies, unless you add withcredentials: true
 
     checkAuth(){
-      return this.http.get(`${this.rootUrl}auth/signedin`, {
-        withCredentials: true}).pipe(
+      return this.http.get(`${this.rootUrl}auth/signedin`).pipe(
         tap(response => {
           console.log(response);
         })
