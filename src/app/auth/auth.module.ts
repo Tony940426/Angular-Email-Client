@@ -5,11 +5,13 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { SignoutComponent } from './signout/signout.component';
 
 @NgModule({
   declarations: [
     SignUpComponent,
     SignInComponent,
+    SignoutComponent,
   ],
   imports: [
     CommonModule,

@@ -16,5 +16,9 @@ export class AppComponent {
 
   ngOnInit(){
     this.authService.checkAuth().subscribe(() => {});
+
+    setTimeout(() => {
+      this.authService.signOut().subscribe(() => {})
+    },5000)
   }
 }
