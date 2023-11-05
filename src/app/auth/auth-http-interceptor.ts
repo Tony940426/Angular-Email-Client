@@ -10,16 +10,6 @@ export class AuthHttpInterceptor implements HttpInterceptor {
         const modifiedReq = req.clone({
             withCredentials: true
         });
-        return next.handle(modifiedReq).pipe(
-            tap(val => {
-                if(val.type === HttpEventType.Sent){
-                    console.log("Request was sent to server")
-                }
-
-                if(val.type === HttpEventType.Response){
-                    console.log("Response was received", val)
-                }         
-            })
-        )
+        return next.handle(modifiedReq)
     }
 }

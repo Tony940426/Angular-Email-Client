@@ -7,6 +7,11 @@ interface UserNameAvailableResponse {
   available: boolean;
 }
 
+interface SigninResponse{
+  authenticated: boolean;
+  username: string;
+}
+
 export interface SignUpCredentials{
   username: string;
   password: string;
@@ -45,9 +50,9 @@ export class AuthService {
   //By default HTTP dumps cookies, unless you add withcredentials: true
 
     checkAuth(){
-      return this.http.get(`${this.rootUrl}auth/signedin`).pipe(
-        tap(response => {
-          console.log(response);
+      return this.http.get<SigninResponse>(`${this.rootUrl}auth/signedin`).pipe(
+        tap(({authenticated}) => {
+          this.signedin$.next(authenticated)
         })
       )
     }
