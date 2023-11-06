@@ -18,6 +18,11 @@ export interface SignUpCredentials{
   passwordConfirmation: string;
 }
 
+export interface SignInCredentials{
+  username: string;
+  password: string;
+}
+
 interface SignUpResponse {
   username: string;
 }
@@ -64,6 +69,14 @@ export class AuthService {
             this.signedin$.next(false)
           })
         )
+    }
+
+    signIn(creditials: SignInCredentials){
+      return this.http.post(`${this.rootUrl}auth/signin`, creditials).pipe(
+        tap(() => {
+          this.signedin$.next(true)
+        })
+      )
     }
 }
 
