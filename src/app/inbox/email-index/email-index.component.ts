@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EmailService } from '../email.service';
 
 @Component({
   selector: 'app-email-index',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class EmailIndexComponent {
 
+  emails = [];
+
+  constructor(private emailService: EmailService){}
+  
+  ngOnInit(){
+    this.emailService.getEmails().subscribe((emails) => {
+      this.emails = emails
+      console.log(this.emails)
+    })
+  }
 }
