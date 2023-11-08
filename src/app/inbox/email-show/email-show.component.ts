@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EmailService } from '../email.service';
 import { switchMap } from 'rxjs/operators';
+import { Email } from '../email';
 
 @Component({
   selector: 'app-email-show',
@@ -9,6 +10,7 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./email-show.component.css']
 })
 export class EmailShowComponent {
+  email: Email 
 
   constructor(private route: ActivatedRoute, private emailService: EmailService){}
 
@@ -18,7 +20,7 @@ export class EmailShowComponent {
         return this.emailService.getEmail(id)
       })
     ).subscribe((email)=>{
-      console.log(email)
+      this.email = email;
     })
   }
 }
