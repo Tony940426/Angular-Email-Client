@@ -1,9 +1,6 @@
-import { Injectable } from '@angular/core';
+import { ResolveFn } from '@angular/router'
+import { Email } from './email';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class EmailResolverService {
+export const EmailResolverService: ResolveFn<Email> = (
 
-  constructor() { }
-}
+)
