@@ -4,13 +4,23 @@ import { HomeComponent } from './home/home.component';
 import { PlaceholderComponent } from './placeholder/placeholder.component';
 import { EmailShowComponent } from './email-show/email-show.component';
 import { EmailResolverService } from './email-resolver.service';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent,
+  { path: '', 
+  component: HomeComponent,
   children: [
-    {path: ':id', component: EmailShowComponent, resolve: {email: EmailResolverService}},
-    //By add : before ID, the : is a sort of wildcare. 
-    {path: '', component: PlaceholderComponent}
+    {
+      path: 'not-found',
+      component: NotFoundComponent
+    },
+    {
+    path: ':id', 
+    component: EmailShowComponent, 
+    resolve: {email: EmailResolverService}},
+    {path: '', 
+    component: PlaceholderComponent
+  }
   ]
 }
 ];
