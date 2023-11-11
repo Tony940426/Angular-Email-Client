@@ -6,6 +6,6 @@
     display: none;
 }
 
-.actions:empty + .actions-default{
+.actions:empty + .actions-default {
     display:block;
 }
