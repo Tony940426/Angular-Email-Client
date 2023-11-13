@@ -1,9 +1,19 @@
-<div class="ui grid stackable">
-    <app-email-create></app-email-create>
-    <div class="five wide column">
+<div class="ui stackable grid">
+    <div class="five wide computer column">
+        <app-email-create></app-email-create>
         <app-email-index></app-email-index>
     </div>
-    <div class="eleven wide column">
+    <div class="eleven wide computer column">
         <router-outlet></router-outlet>
     </div>
 </div>
+
+<!-- <app-modal>
+    <h3 modalTitle>Compose</h3>
+    <p>
+        I am content
+    </p>
+    <div class="modalFooter">
+        <button class="ui primary button">Customer Button</button>
+    </div>
+</app-modal> -->
