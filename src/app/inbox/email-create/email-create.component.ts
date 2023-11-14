@@ -18,7 +18,7 @@ export class EmailCreateComponent {
       html: '',
       text: '',
       from:'test1234@angular-email.com'
-    }
+    };
   }
 
 }
