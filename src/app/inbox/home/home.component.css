@@ -1,0 +1,9 @@
+app-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000; /* high value to ensure it's above other elements */
+    /* Additional styling for background, animations, etc. */
+}

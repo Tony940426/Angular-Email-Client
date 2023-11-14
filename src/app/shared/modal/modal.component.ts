@@ -12,7 +12,7 @@ export class ModalComponent {
 
   }
 
-  ngOnInIt(){
+  ngOnInit(){
     document.body.appendChild(this.el.nativeElement);
   }
 
