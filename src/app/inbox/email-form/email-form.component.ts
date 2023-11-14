@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Email } from '../email';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-email-form',
@@ -6,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./email-form.component.css']
 })
 export class EmailFormComponent {
+emailForm: FormGroup
+@Input() email: Email;
 
+ngOnInit(){
+    const{ subject, from, to, text } = this.email
+
+    this.emailForm = new FormGroup({
+      to: new FormControl(to),
+      from: new FormControl(from),
+      subject: new FormControl(subject),
+      text: new FormControl(text)
+    });
+  }
 }
