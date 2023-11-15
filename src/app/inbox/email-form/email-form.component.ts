@@ -8,8 +8,8 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./email-form.component.css']
 })
 export class EmailFormComponent {
-emailForm: FormGroup
-@Input() email: Email;
+  emailForm: FormGroup;
+  @Input() email: Email;
 
 ngOnInit(){
     const{ subject, from, to, text } = this.email
