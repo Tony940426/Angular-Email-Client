@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -8,8 +8,8 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./input.component.css']
 })
 export class InputComponent {
-  @Input() label: string;
   @Input() control: FormControl;
+  @Input() label: string;
   @Input() inputType: string;
 
   showErrors(){

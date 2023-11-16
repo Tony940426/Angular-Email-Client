@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Email } from '../email';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Form } from '@angular/forms';
 
 @Component({
   selector: 'app-email-form',
@@ -9,6 +9,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class EmailFormComponent {
   emailForm: FormGroup;
+  @Input() control: FormControl;
   @Input() email: Email;
 
 ngOnInit(){

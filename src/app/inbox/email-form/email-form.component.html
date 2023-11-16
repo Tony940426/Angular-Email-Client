@@ -1,5 +1,15 @@
-<form [formGroup]="emailForm">
-    <app-input [control]="emailForm?.get('To')" inputType="email" label="To">
-
+<form class="ui form" [formGroup]="emailForm">
+    <app-input [control]="$any(emailForm.get('to'))" inputType="email" label="To">
     </app-input>
+
+    <app-input [control]="$any(emailForm.get('from'))"  inputType="email" label="From">
+    </app-input>
+
+    <app-input [control]="$any(emailForm.get('subject'))" inputType="text" label="Subject">
+    </app-input>
+
+    <app-input [control]="$any(emailForm.get('content'))"  inputType="text" label="Content">
+    </app-input>
+
+    <button class="ui button primary">Send</button>
 </form>
