@@ -8,7 +8,7 @@
     <app-input [control]="$any(emailForm.get('subject'))" inputType="text" label="Subject">
     </app-input>
 
-    <app-input [control]="$any(emailForm.get('content'))"  inputType="text" label="Content">
+    <app-input controlType="textArea" [control]="$any(emailForm.get('text'))" label="Content">
     </app-input>
 
     <button class="ui button primary">Send</button>
