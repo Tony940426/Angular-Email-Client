@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Email } from '../email';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-email-form',
@@ -11,6 +12,7 @@ export class EmailFormComponent {
   emailForm: FormGroup;
   @Input() control: FormControl;
   @Input() email: Email;
+  @Output() emailSubmit = new EventEmitter
 
 ngOnInit(){
     const{ subject, from, to, text } = this.email
@@ -22,4 +24,13 @@ ngOnInit(){
       text: new FormControl(text, Validators.required)
     });
   }
+  onSubmit(){
+    if(this.emailForm.invalid){
+      return
+    }
+    this.emailSubmit.emit(this.emailForm.value)
+  }
 }
+
+//Using getrawValue will also send the from information. If you just use .value, the form value will
+//be shown as it is disabled.
