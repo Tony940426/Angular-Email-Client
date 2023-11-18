@@ -1,4 +1,5 @@
 <div class="header" *ngIf="email">
+    <app-email-reply [email]="email"></app-email-reply>
     <div>
         <h3>{{email.subject}}</h3>
         <div>
